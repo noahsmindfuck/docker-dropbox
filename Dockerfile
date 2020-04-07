@@ -8,8 +8,6 @@ FROM debian:stretch
 MAINTAINER Adam K Dean <adamkdean@googlemail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
-
-
 # From 'How do I add or remove Dropbox from my Linux repository?' -
 # https://www.dropbox.com/en/help/246
 
