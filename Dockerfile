@@ -1,13 +1,23 @@
+#
+# This Dockerfile builds the adamkdean/dropbox image.
+# This was previously janeczku/dropbox but that repo has become stale.
+# See: https://github.com/adamkdean/docker-dropbox
+#
+
 FROM debian:stretch
 MAINTAINER Adam K Dean <adamkdean@googlemail.com>
 ENV DEBIAN_FRONTEND noninteractive
+
+
 
 # From 'How do I add or remove Dropbox from my Linux repository?' -
 # https://www.dropbox.com/en/help/246
 
 RUN apt-get -qqy update \
   && apt-get -qqy upgrade \
-  && apt-get -qqy install libatomic1 gnupg ca-certificates curl python-gpgme python3-gpg \
+  && apt-get -qqy install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 \
+                  libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 libglapi-mesa \
+                  libatomic1 gnupg ca-certificates curl python-gpgme python3-gpg \
   && echo 'deb http://linux.dropbox.com/debian stretch main' > /etc/apt/sources.list.d/dropbox.list \
 	&& apt-key adv --keyserver ipv4.pool.sks-keyservers.net --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E \
 	&& apt-get -qqy update \
