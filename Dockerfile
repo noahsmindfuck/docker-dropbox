@@ -59,6 +59,6 @@ COPY run /root/
 COPY dropbox /usr/bin/dropbox
 
 WORKDIR /dbox/Dropbox
-EXPOSE 17500
+#EXPOSE 17500
 VOLUME ["/dbox/.dropbox", "/dbox/Dropbox"]
 ENTRYPOINT ["/root/run"]
